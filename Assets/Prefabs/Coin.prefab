@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122feb61713f7e3498a3d0b39e152282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCoin: 0
   coinType: 0
   horizontalSpeed: 10
   jumpStrength: 10
@@ -160,7 +159,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6757434073087000143}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
