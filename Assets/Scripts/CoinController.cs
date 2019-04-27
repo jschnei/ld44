@@ -30,13 +30,10 @@ public class CoinController : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            // Debug.Log("contact");
-            // Debug.Log(contact.normal);
             if (contact.normal.y > COLLISION_GROUND_NORMAL_THRESHOLD)
             {
                 isGrounded = true;
                 groundedOn = collision.gameObject;
-                Debug.Log("Grounded!");
                 break;
             }
         }
@@ -48,7 +45,6 @@ public class CoinController : MonoBehaviour
         {
             groundedOn = null;
             isGrounded = false;
-            Debug.Log("Ungrounded!");
         }
     }
 
@@ -80,8 +76,6 @@ public class CoinController : MonoBehaviour
         if (!activeCoin) return;
 
         float horizontal = Input.GetAxis("Horizontal");
-        // float vertical = Input.GetAxis("Vertical");
-        // Debug.Log(vertical);
 
         Vector2 velocity = rigidbody2d.velocity;
 
@@ -99,13 +93,11 @@ public class CoinController : MonoBehaviour
 
     public void Activate()
     {
-        Debug.Log("Activating!");
         activeCoin = true;
     }
 
     public void Deactivate()
     {
-        Debug.Log("Deactivating!");
         activeCoin = false;
     }
 }
