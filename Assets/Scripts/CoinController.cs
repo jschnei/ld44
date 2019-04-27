@@ -14,9 +14,43 @@ public class CoinController : MonoBehaviour
     public bool activeCoin = false;
     public CoinType coinType = CoinType.TEN;
 
+    public float horizontalSpeed = 50.0f;
+    public float jumpStrength = 100.0f;
+
     public Sprite FIVE_SPRITE;
     public Sprite TEN_SPRITE;
     public Sprite TWENTYFIVE_SPRITE;
+
+    GameObject groundedOn = null;
+    bool isGrounded = false;
+
+    const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.9f;
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            // Debug.Log("contact");
+            // Debug.Log(contact.normal);
+            if (contact.normal.y > COLLISION_GROUND_NORMAL_THRESHOLD)
+            {
+                isGrounded = true;
+                groundedOn = collision.gameObject;
+                Debug.Log("Grounded!");
+                break;
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject == groundedOn)
+        {
+            groundedOn = null;
+            isGrounded = false;
+            Debug.Log("Ungrounded!");
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -46,11 +80,21 @@ public class CoinController : MonoBehaviour
         if (!activeCoin) return;
 
         float horizontal = Input.GetAxis("Horizontal");
+        // float vertical = Input.GetAxis("Vertical");
+        // Debug.Log(vertical);
 
-        Vector2 position = rigidbody2d.position;
-        position.x += 3.0f * horizontal * Time.deltaTime;
+        Vector2 velocity = rigidbody2d.velocity;
 
-        rigidbody2d.MovePosition(position);
+        velocity.x = horizontal * horizontalSpeed;
+
+        rigidbody2d.velocity = velocity;
+
+        if (isGrounded && Input.GetKeyDown("up"))
+        {
+            Debug.Log("jump!");
+            rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
+        }
+
     }
 
     public void Activate()
