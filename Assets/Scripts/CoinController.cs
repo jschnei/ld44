@@ -98,6 +98,7 @@ public class CoinController : MonoBehaviour
 
     public void Deactivate()
     {
+
         activeCoin = false;
     }
 }
