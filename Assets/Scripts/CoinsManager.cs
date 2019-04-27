@@ -9,15 +9,20 @@ public class CoinsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CoinController startCoin = GetCoinController(activeIndex);
+        startCoin.Activate();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // TODO: switch to Input.GetButtonDown
         if (Input.GetKeyDown("l"))
         {
             SwitchForward();
+        } else if (Input.GetKeyDown("j"))
+        {
+            SwitchBackward();
         }
     }
 
@@ -47,6 +52,8 @@ public class CoinsManager : MonoBehaviour
 
     void SwitchBackward()
     {
-
+        int nextIndex = activeIndex - 1;
+        if (nextIndex < 0) nextIndex = transform.childCount - 1;
+        SwitchToIndex(nextIndex);
     }
 }

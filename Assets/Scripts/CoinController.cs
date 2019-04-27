@@ -10,8 +10,6 @@ public enum CoinType {
 
 public class CoinController : MonoBehaviour
 {
-    Rigidbody2D rigidbody2d;
-    public bool activeCoin = false;
     public CoinType coinType = CoinType.TEN;
 
     public float horizontalSpeed = 50.0f;
@@ -21,8 +19,11 @@ public class CoinController : MonoBehaviour
     public Sprite TEN_SPRITE;
     public Sprite TWENTYFIVE_SPRITE;
 
+    Rigidbody2D rigidbody2d;
+
     GameObject groundedOn = null;
     bool isGrounded = false;
+    bool activeCoin = false;
 
     const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.9f;
 
