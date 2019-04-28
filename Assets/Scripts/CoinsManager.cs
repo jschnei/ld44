@@ -46,9 +46,6 @@ public class CoinsManager : MonoBehaviour
         } else if (Input.GetKeyDown("j"))
         {
             SwitchBackward();
-        } else if (Input.GetKeyDown("q"))
-        {
-            AddCoin(CoinType.FIVE, new Vector2(0,0));
         }
     }
 
@@ -79,6 +76,8 @@ public class CoinsManager : MonoBehaviour
 
     void SwitchForward()
     {
+        if (activeCoin == null) return;
+
         int activeIndex = activeCoin.GetCoinsIndex();
         int nextIndex = (activeIndex + 1) % transform.childCount;
         SwitchToIndex(nextIndex);
@@ -86,6 +85,8 @@ public class CoinsManager : MonoBehaviour
 
     void SwitchBackward()
     {
+        if (activeCoin == null) return;
+
         int activeIndex = activeCoin.GetCoinsIndex();
         int nextIndex = activeIndex - 1;
         if (nextIndex < 0) nextIndex = transform.childCount - 1;
@@ -100,6 +101,7 @@ public class CoinsManager : MonoBehaviour
         {
             Destroy(coin.gameObject);
             Debug.Log("Last coin destroyed");
+            activeCoin = null;
             return;
         }
 
@@ -120,6 +122,12 @@ public class CoinsManager : MonoBehaviour
 
         CoinController coin = coinObject.GetComponent<CoinController>();
         coin.SetLocation(location);
+
+        if (activeCoin == null)
+        {
+            ActivateCoin(coin);
+            activeCoin = coin;
+        }
     }
 
 }
