@@ -79,12 +79,12 @@ public class CoinController : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
 
-        Vector2 velocity = rigidbody2d.velocity;
-
-        velocity.x = horizontal * horizontalSpeed;
-
-        rigidbody2d.velocity = velocity;
-
+        if (horizontal != 0) {
+	        Vector2 velocity = rigidbody2d.velocity;
+	        velocity.x = horizontal * horizontalSpeed;
+	        rigidbody2d.velocity = velocity;
+		}
+		
         if (isGrounded && Input.GetKeyDown("up"))
         {
             rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);

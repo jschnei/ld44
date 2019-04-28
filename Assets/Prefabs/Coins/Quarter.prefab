@@ -100,6 +100,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6757434073087000136, guid: 33d8479fa4592d041872a21cd1dc80f8,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757434073087000136, guid: 33d8479fa4592d041872a21cd1dc80f8,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6757434073087000139, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
       propertyPath: coinType
@@ -108,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 6757434073087000139, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
       propertyPath: jumpStrength
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6471970755106831817, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
