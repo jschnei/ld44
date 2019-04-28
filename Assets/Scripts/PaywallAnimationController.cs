@@ -12,13 +12,6 @@ public class PaywallAnimationController : MonoBehaviour
     {
         animator = this.GetComponent<Animator>();
         boxCollider = this.GetComponent<BoxCollider2D>();
-        StartCoroutine(Example());
-    }
-
-    IEnumerator Example()
-    {
-        yield return new WaitForSeconds(3);
-        OpenDoor();
     }
 
     public void OpenDoor()
