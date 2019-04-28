@@ -7,5 +7,5 @@ PhysicsMaterial2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Tilemap physics material
-  friction: 0.05
-  bounciness: 0.001
+  friction: 0.01
+  bounciness: 0

@@ -32,14 +32,21 @@ public class CoinController : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
+    	bool foundContact = false;
         foreach (ContactPoint2D contact in collision.contacts)
         {
             if (contact.normal.y > COLLISION_GROUND_NORMAL_THRESHOLD)
             {
                 isGrounded = true;
                 groundedOn = collision.gameObject;
+                foundContact = true;
                 break;
             }
+        }
+
+        if (!foundContact) {
+        	isGrounded = false;
+        	groundedOn = null;
         }
     }
 
@@ -47,6 +54,7 @@ public class CoinController : MonoBehaviour
     {
         if (collision.gameObject == groundedOn)
         {
+        	Debug.Log("is now not grounded");
             groundedOn = null;
             isGrounded = false;
         }
@@ -115,11 +123,9 @@ public class CoinController : MonoBehaviour
 	        rigidbody2d.velocity = velocity;
 		}
 		
-        if (isGrounded && Input.GetKeyDown("up"))
-        {
+        if (isGrounded && Input.GetKeyDown("up")) {
             rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
         }
-
     }
 
     public void Activate()

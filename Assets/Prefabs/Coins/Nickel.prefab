@@ -9,9 +9,9 @@ PolygonCollider2D:
   m_GameObject: {fileID: 6968358504498967294}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 68cfcb8f84cc05a4cbdfe5a4ea481d2d, type: 2}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -44,6 +44,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nickel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232711424579430878, guid: 33d8479fa4592d041872a21cd1dc80f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6757434073087000137, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
@@ -104,6 +109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpStrength
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757434073087000138, guid: 33d8479fa4592d041872a21cd1dc80f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 642410411781511427, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
