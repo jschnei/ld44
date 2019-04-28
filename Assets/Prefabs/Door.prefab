@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 10
+  changeDispenserObject: {fileID: 7904865742741921258}
 --- !u!1 &7904865742741921258
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500982719230159929}
   - component: {fileID: 782893341578678244}
+  - component: {fileID: 4724885343094897205}
   m_Layer: 0
   m_Name: ChangeDispenser
   m_TagString: Untagged
@@ -287,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7904865742741921258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 6.88, z: 0}
+  m_LocalPosition: {x: -5.52, y: 4.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4724885344243710117}
@@ -341,3 +343,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4724885343094897205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904865742741921258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d53174af74dad574f94762981656722f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsObject: {fileID: 0}
