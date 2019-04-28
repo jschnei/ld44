@@ -130,4 +130,9 @@ public class CoinController : MonoBehaviour
         manager.DestroyCoin(this);
     }
 
+    public void SetLocation(Vector2 position)
+    {
+        transform.position = position;
+    }
+
 }

@@ -5,11 +5,13 @@ using UnityEngine;
 public class PayslotController : MonoBehaviour
 {
     public int cost = 10;
+    public GameObject changeDispenserObject;
+    ChangeDispenserController changeDispenser;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        changeDispenser = changeDispenserObject.GetComponent<ChangeDispenserController>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,7 @@ public class PayslotController : MonoBehaviour
             {
                 Debug.Log("Door opened");
                 Debug.Log("Make change: " + change.ToString());
+                changeDispenser.DispenseChange(change);
                 gameObject.GetComponentInParent<PaywallAnimationController>().OpenDoor();
             }
         }

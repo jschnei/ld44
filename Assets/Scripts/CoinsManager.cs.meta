@@ -3,7 +3,13 @@ guid: 93c5b28f68e8bc644a22cea3abd8eea5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - NICKEL_PREFAB: {fileID: 6968358504498967294, guid: 2dc759c65dd9dc34bb67938dc2c448d5,
+      type: 3}
+  - DIME_PREFAB: {fileID: 5795767738949624922, guid: d65167808cca76043af5d7351c8ab36a,
+      type: 3}
+  - QUARTER_PREFAB: {fileID: 4821678037277204514, guid: 3fd90223f18e2a245b2ed78f489355db,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
