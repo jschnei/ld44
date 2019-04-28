@@ -8,7 +8,8 @@ public class CoinsManager : MonoBehaviour
     public GameObject DIME_PREFAB;
     public GameObject QUARTER_PREFAB;
 
-    CoinController activeCoin = null;
+    LevelManager level;
+    CoinController activeCoin;
 
     GameObject GetPrefab(CoinType coinType)
     {
@@ -29,8 +30,10 @@ public class CoinsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = gameObject.GetComponentInParent<LevelManager>();
+
         activeCoin = GetCoinController(0);
-        activeCoin.Activate();
+        ActivateCoin(activeCoin);
     }
 
     // Update is called once per frame
@@ -56,21 +59,22 @@ public class CoinsManager : MonoBehaviour
                         .GetComponent<CoinController>();
     }
 
-    void DeactivateIndex(int index)
+    void ActivateCoin(CoinController coin)
     {
-        GetCoinController(index).Deactivate();
+        coin.Activate();
+        level.FocusCamera(coin.gameObject);
     }
 
-    void ActivateIndex(int index)
+    void DeactivateCoin(CoinController coin)
     {
-        GetCoinController(index).Activate();
+        coin.Deactivate();
     }
 
     void SwitchToIndex(int nextIndex)
     {
-        activeCoin.Deactivate();
+        DeactivateCoin(activeCoin);
         activeCoin = GetCoinController(nextIndex);
-        activeCoin.Activate();
+        ActivateCoin(activeCoin);
     }
 
     void SwitchForward()

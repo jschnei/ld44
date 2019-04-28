@@ -5,18 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    CameraController mainCamera;
+    CoinsManager player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera = gameObject.GetComponentInChildren<CameraController>();
+        player = gameObject.GetComponentInChildren<CoinsManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // LateUpdate is called after Update each frame
+    void LateUpdate()
     {
         if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene("MainScene");
         }
+    }
+
+    public void FocusCamera(GameObject target)
+    {
+        mainCamera.FocusTarget(target);
     }
 }
