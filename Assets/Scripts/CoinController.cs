@@ -25,6 +25,8 @@ public class CoinController : MonoBehaviour
     bool isGrounded = false;
     bool activeCoin = false;
 
+    CoinsManager manager;
+
     const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.9f;
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -54,6 +56,7 @@ public class CoinController : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        manager = gameObject.GetComponentInParent<CoinsManager>();
 
         Transform spriteChild = this.transform.Find("sprite");
         SpriteRenderer spriteRenderer = spriteChild.GetComponent<SpriteRenderer>();
@@ -86,7 +89,6 @@ public class CoinController : MonoBehaviour
 
         if (isGrounded && Input.GetKeyDown("up"))
         {
-            Debug.Log("jump!");
             rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
         }
 
@@ -102,4 +104,32 @@ public class CoinController : MonoBehaviour
 
         activeCoin = false;
     }
+
+    public int GetValue()
+    {
+        switch (coinType)
+        {
+            case CoinType.FIVE:
+                return 5;
+            case CoinType.TEN:
+                return 10;
+            case CoinType.TWENTYFIVE:
+                return 25;
+            default:
+                Debug.LogError("Invalid coin type");
+                return 0;
+        }
+    }
+
+    // Gets index of coin into CoinsManager's children
+    public int GetCoinsIndex()
+    {
+        return gameObject.transform.GetSiblingIndex();
+    }
+
+    public void DestroyCoin()
+    {
+        manager.DestroyCoin(this);
+    }
+
 }

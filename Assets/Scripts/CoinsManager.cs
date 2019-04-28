@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CoinsManager : MonoBehaviour
 {
-    public int activeIndex = 0;
+    CoinController activeCoin = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        CoinController startCoin = GetCoinController(activeIndex);
-        startCoin.Activate();
+        activeCoin = GetCoinController(0);
+        activeCoin.Activate();
     }
 
     // Update is called once per frame
@@ -30,30 +30,57 @@ public class CoinsManager : MonoBehaviour
     {
         return transform.GetChild(index)
                         .gameObject
-                        .GetComponent(typeof(CoinController)) as CoinController;
+                        .GetComponent<CoinController>();
+    }
+
+    void DeactivateIndex(int index)
+    {
+        GetCoinController(index).Deactivate();
+    }
+
+    void ActivateIndex(int index)
+    {
+        GetCoinController(index).Activate();
     }
 
     void SwitchToIndex(int nextIndex)
     {
-        CoinController oldController = GetCoinController(activeIndex);
-        CoinController newController = GetCoinController(nextIndex);
-
-        oldController.Deactivate();
-        newController.Activate();
-
-        activeIndex = nextIndex;
+        activeCoin.Deactivate();
+        activeCoin = GetCoinController(nextIndex);
+        activeCoin.Activate();
     }
 
     void SwitchForward()
     {
+        int activeIndex = activeCoin.GetCoinsIndex();
         int nextIndex = (activeIndex + 1) % transform.childCount;
         SwitchToIndex(nextIndex);
     }
 
     void SwitchBackward()
     {
+        int activeIndex = activeCoin.GetCoinsIndex();
         int nextIndex = activeIndex - 1;
         if (nextIndex < 0) nextIndex = transform.childCount - 1;
         SwitchToIndex(nextIndex);
+    }
+
+    public void DestroyCoin(CoinController coin)
+    {
+        int numCoins = transform.childCount;
+
+        if(numCoins == 1)
+        {
+            Destroy(coin.gameObject);
+            Debug.Log("Last coin destroyed");
+            return;
+        }
+
+        if (coin == activeCoin)
+        {
+            SwitchForward();
+        }
+
+        Destroy(coin.gameObject);        
     }
 }
