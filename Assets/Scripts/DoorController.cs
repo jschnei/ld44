@@ -8,7 +8,7 @@ public class DoorController : MonoBehaviour
     PayslotController payslotController;
     DoorMonitorController doorMonitor;
 
-    PaywallAnimationController paywallAnimation;
+    DoorAnimationController paywallAnimation;
 
     public int cost = 10;
 
@@ -19,7 +19,7 @@ public class DoorController : MonoBehaviour
         payslotController = gameObject.GetComponentInChildren<PayslotController>();
         doorMonitor = gameObject.GetComponentInChildren<DoorMonitorController>();
 
-        paywallAnimation = gameObject.GetComponent<PaywallAnimationController>();
+        paywallAnimation = gameObject.GetComponent<DoorAnimationController>();
 
         doorMonitor.DisplayBalance(cost);
     }
