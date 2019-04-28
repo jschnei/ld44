@@ -6,6 +6,7 @@ TagManager:
   tags:
   - eye
   - coin text
+  - closed eyes
   layers:
   - Default
   - TransparentFX

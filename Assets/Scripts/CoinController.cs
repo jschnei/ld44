@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public enum CoinType {
     FIVE,
@@ -15,10 +16,6 @@ public class CoinController : MonoBehaviour
     public float horizontalSpeed = 50.0f;
     public float jumpStrength = 100.0f;
 
-    public Sprite FIVE_SPRITE;
-    public Sprite TEN_SPRITE;
-    public Sprite TWENTYFIVE_SPRITE;
-
     Rigidbody2D rigidbody2d;
 
     GameObject groundedOn = null;
@@ -26,6 +23,8 @@ public class CoinController : MonoBehaviour
     bool activeCoin = false;
 
     CoinsManager manager;
+
+    private float initialX;
 
     const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.7f;
 
@@ -58,21 +57,39 @@ public class CoinController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         manager = gameObject.GetComponentInParent<CoinsManager>();
 
-        Transform spriteChild = this.transform.Find("sprite");
-        SpriteRenderer spriteRenderer = spriteChild.GetComponent<SpriteRenderer>();
-
         if (coinType == CoinType.FIVE) {
-            spriteRenderer.sprite = FIVE_SPRITE;
+            foreach (Transform child in this.transform) {
+                child.gameObject.SetActive(child.name.Contains("Nickel"));
+            }
         } else if (coinType == CoinType.TEN) {
-            spriteRenderer.sprite = TEN_SPRITE;
+            foreach (Transform child in this.transform) {
+                child.gameObject.SetActive(child.name.Contains("Dime"));
+            }
         } else if (coinType == CoinType.TWENTYFIVE) {
-            spriteRenderer.sprite = TWENTYFIVE_SPRITE;
+            foreach (Transform child in this.transform) {
+                child.gameObject.SetActive(child.name.Contains("Quarter"));
+            }
         }
+
+        initialX = this.transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
+        foreach (Transform child in this.transform) {
+            child.GetComponent<CoinRenderingHelper>().eyesOpen = activeCoin;
+            float r = 0f;
+            if (coinType == CoinType.FIVE) {
+                r = 1.5f;
+            } else if (coinType == CoinType.TEN) {
+                r = 1f;
+            } else if (coinType == CoinType.TWENTYFIVE) {
+                r = 2f;
+            }
+            child.GetComponent<CoinRenderingHelper>().rotation = (float) ((this.transform.position.x - initialX) / r * -180.0 / Math.PI);
+        }
+
         if (!activeCoin) {
         	return;
         }
