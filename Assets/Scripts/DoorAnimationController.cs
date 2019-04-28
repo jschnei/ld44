@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PaywallAnimationController : MonoBehaviour
+public class DoorAnimationController : MonoBehaviour
 {
     Animator animator;
     BoxCollider2D boxCollider;
@@ -16,7 +16,18 @@ public class PaywallAnimationController : MonoBehaviour
 
     public void OpenDoor()
     {
+        Debug.Log("Opening Door!");
         animator.SetTrigger("OpenDoor");
         boxCollider.enabled = false;
+    }
+
+    public void CloseDoor()
+    {
+        Debug.Log("Closing Door!");
+
+        if (animator == null) return;
+
+        animator.SetTrigger("CloseDoor");
+        boxCollider.enabled = true;
     }
 }
