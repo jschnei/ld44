@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class PayslotController : MonoBehaviour
 {
-    public int cost = 10;
-    public GameObject changeDispenserObject;
-    ChangeDispenserController changeDispenser;
+    DoorController door;
 
     // Start is called before the first frame update
     void Start()
     {
-        changeDispenser = changeDispenserObject.GetComponent<ChangeDispenserController>();
+        door = gameObject.GetComponentInParent<DoorController>();
     }
 
     // Update is called once per frame
@@ -22,28 +20,9 @@ public class PayslotController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(cost > 0)
-        {
-            Debug.Log("Triggered");
-            CoinController coin = collider.gameObject.GetComponent<CoinController>();
-            if (coin == null) return;
+        CoinController coin = collider.gameObject.GetComponent<CoinController>();
+        if (coin == null) return;
 
-            Debug.Log("Spend Coin!");
-            cost -= coin.GetValue();
-            // Destroy coin
-            coin.DestroyCoin();
-
-            // Destroy door
-
-            int change = -cost;
-            if (cost <= 0)
-            {
-                Debug.Log("Door opened");
-                Debug.Log("Make change: " + change.ToString());
-                changeDispenser.DispenseChange(change);
-                gameObject.GetComponentInParent<PaywallAnimationController>().OpenDoor();
-            }
-        }
-
+        door.ProcessCoin(coin);
     }
 }

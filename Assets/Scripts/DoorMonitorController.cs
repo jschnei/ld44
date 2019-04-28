@@ -76,4 +76,14 @@ public class DoorMonitorController : MonoBehaviour
     {
         
     }
+
+    public void DisplayBalance(int balance)
+    {
+        SetText("PAY", balance.ToString() + "c");
+    }
+
+    public void DisplayOpen()
+    {
+        SetText("OPEN", "");
+    }
 }
