@@ -8,8 +8,8 @@ public class LevelManager : MonoBehaviour
     CameraController mainCamera;
     CoinsManager player;
 
-    // Start is called before the first frame update
-    void Start()
+    // Use Awake because the camera is called in CoinsManager's Start, so the camera needs to be initialized first.
+    void Awake()
     {
         mainCamera = gameObject.GetComponentInChildren<CameraController>();
         player = gameObject.GetComponentInChildren<CoinsManager>();
