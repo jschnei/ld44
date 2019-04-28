@@ -28,7 +28,7 @@ public class CoinController : MonoBehaviour
 
     const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.7f;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionStay2D(Collision2D collision)
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
