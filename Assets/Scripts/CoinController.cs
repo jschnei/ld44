@@ -27,7 +27,7 @@ public class CoinController : MonoBehaviour
 
     CoinsManager manager;
 
-    const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.9f;
+    const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.7f;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -60,24 +60,22 @@ public class CoinController : MonoBehaviour
 
         Transform spriteChild = this.transform.Find("sprite");
         SpriteRenderer spriteRenderer = spriteChild.GetComponent<SpriteRenderer>();
-        BoxCollider2D boxCollider = this.GetComponent<BoxCollider2D>();
 
         if (coinType == CoinType.FIVE) {
             spriteRenderer.sprite = FIVE_SPRITE;
-            boxCollider.size = new Vector2(1.5f, 1.5f);
         } else if (coinType == CoinType.TEN) {
             spriteRenderer.sprite = TEN_SPRITE;
-            boxCollider.size = new Vector2(1.0f, 1.0f);
         } else if (coinType == CoinType.TWENTYFIVE) {
             spriteRenderer.sprite = TWENTYFIVE_SPRITE;
-            boxCollider.size = new Vector2(2.0f, 2.0f);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!activeCoin) return;
+        if (!activeCoin) {
+        	return;
+        }
 
         float horizontal = Input.GetAxis("Horizontal");
 
