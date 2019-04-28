@@ -45,6 +45,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quarter
       objectReference: {fileID: 0}
+    - target: {fileID: 1232711424579430878, guid: 33d8479fa4592d041872a21cd1dc80f8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6757434073087000137, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100,6 +105,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6757434073087000136, guid: 33d8479fa4592d041872a21cd1dc80f8,
+        type: 3}
+      propertyPath: m_Mass
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6757434073087000136, guid: 33d8479fa4592d041872a21cd1dc80f8,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6757434073087000139, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
       propertyPath: coinType
@@ -110,15 +125,10 @@ PrefabInstance:
       propertyPath: jumpStrength
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 6757434073087000136, guid: 33d8479fa4592d041872a21cd1dc80f8,
+    - target: {fileID: 6757434073087000138, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}
-      propertyPath: m_Mass
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6757434073087000136, guid: 33d8479fa4592d041872a21cd1dc80f8,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 6
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 642410411781511427, guid: 33d8479fa4592d041872a21cd1dc80f8,
         type: 3}

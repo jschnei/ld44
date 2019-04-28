@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class ChangeDispenserController : MonoBehaviour
 {
-    public GameObject coinsObject;
     CoinsManager coinsManager;
     // Start is called before the first frame update
     void Start()
     {
-        coinsManager = coinsObject.GetComponent<CoinsManager>();
+        coinsManager = GameObject.FindWithTag("Player").GetComponent<CoinsManager>();
     }
 
     // Update is called once per frame

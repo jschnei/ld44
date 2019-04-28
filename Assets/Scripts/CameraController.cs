@@ -29,10 +29,6 @@ public class CameraController : MonoBehaviour
 
     public void FocusTarget(GameObject newTarget)
     {
-        Debug.Log("Focusing camera! Following the object...");
-        Debug.Log(target);
-
         target = newTarget;
-
     }
 }
