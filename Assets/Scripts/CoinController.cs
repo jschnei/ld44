@@ -16,6 +16,8 @@ public class CoinController : MonoBehaviour
     public float horizontalSpeed = 50.0f;
     public float jumpStrength = 100.0f;
 
+    public float polygonColliderScaleFactor = 1.0f;
+
     Rigidbody2D rigidbody2d;
 
     GameObject groundedOn = null;
@@ -50,6 +52,15 @@ public class CoinController : MonoBehaviour
         }
     }
 
+    void ScalePolygonCollider(float scaleFactor) {
+    	PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
+    	Debug.Assert(collider.pathCount == 1, "polygon collider should only be a single polygon");
+    	Vector2[] path = collider.GetPath(0);
+    	for (int i = 0; i < path.Length; i++) {
+    		path[i] = path[i]*scaleFactor;
+    	}
+    	collider.SetPath(0, path);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +81,8 @@ public class CoinController : MonoBehaviour
                 child.gameObject.SetActive(child.name.Contains("Quarter"));
             }
         }
+
+        ScalePolygonCollider(polygonColliderScaleFactor);
 
         initialX = this.transform.position.x;
     }

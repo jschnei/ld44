@@ -73,6 +73,7 @@ MonoBehaviour:
   coinType: 0
   horizontalSpeed: 10
   jumpStrength: 10
+  polygonColliderScaleFactor: 0.98
 --- !u!61 &6757434073087000138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -205,11 +206,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6757434073087000137}
     m_Modifications:
-    - target: {fileID: 5278078843180520456, guid: bf792435e2bfea34690ff7f79147e274,
-        type: 3}
-      propertyPath: m_Name
-      value: Nickel Sprite
-      objectReference: {fileID: 0}
     - target: {fileID: 5278078843180520463, guid: bf792435e2bfea34690ff7f79147e274,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -264,6 +260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278078843180520456, guid: bf792435e2bfea34690ff7f79147e274,
+        type: 3}
+      propertyPath: m_Name
+      value: Nickel Sprite
       objectReference: {fileID: 0}
     - target: {fileID: 5278078843180520457, guid: bf792435e2bfea34690ff7f79147e274,
         type: 3}
@@ -285,11 +286,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6757434073087000137}
     m_Modifications:
-    - target: {fileID: 7969134901806633330, guid: 1d9785cc6b2b69a46b3c8b8dc520bb5c,
-        type: 3}
-      propertyPath: m_Name
-      value: Dime Sprite
-      objectReference: {fileID: 0}
     - target: {fileID: 7969134901806633329, guid: 1d9785cc6b2b69a46b3c8b8dc520bb5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -344,6 +340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7969134901806633330, guid: 1d9785cc6b2b69a46b3c8b8dc520bb5c,
+        type: 3}
+      propertyPath: m_Name
+      value: Dime Sprite
       objectReference: {fileID: 0}
     - target: {fileID: 7969134901806633331, guid: 1d9785cc6b2b69a46b3c8b8dc520bb5c,
         type: 3}
