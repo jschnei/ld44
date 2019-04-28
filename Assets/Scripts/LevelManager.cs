@@ -26,6 +26,8 @@ public class LevelManager : MonoBehaviour
 
     public void FocusCamera(GameObject target)
     {
-        mainCamera.FocusTarget(target);
+        if (target != null) {
+            mainCamera.FocusTarget(target);
+        }
     }
 }
