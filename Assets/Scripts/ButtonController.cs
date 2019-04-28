@@ -6,6 +6,8 @@ public class ButtonController : MonoBehaviour
 {
     GameObject upButton;
     GameObject downButton;
+
+    DoorAnimationController buttonDoor;
     // Start is called before the first frame update
 
     int weightOnButton = 0;
@@ -15,6 +17,8 @@ public class ButtonController : MonoBehaviour
     {
         upButton = transform.Find("ButtonUp").gameObject;
         downButton = transform.Find("ButtonDown").gameObject;
+
+        buttonDoor = gameObject.GetComponentInParent<DoorAnimationController>();
 
         ReleaseButton();
     }
@@ -32,6 +36,8 @@ public class ButtonController : MonoBehaviour
 
         downButton.GetComponent<SpriteRenderer>().enabled = true;
 
+        buttonDoor.OpenDoor();
+
         isPressed = true;
     }
 
@@ -41,6 +47,8 @@ public class ButtonController : MonoBehaviour
         upButton.GetComponent<BoxCollider2D>().enabled = true;
 
         downButton.GetComponent<SpriteRenderer>().enabled = false;
+
+        buttonDoor.CloseDoor();
 
         isPressed = false;
     }
