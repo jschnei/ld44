@@ -6,8 +6,6 @@ public class CameraController : MonoBehaviour
 {
     public GameObject target;
 
-    Vector3 offsetZ;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +17,21 @@ public class CameraController : MonoBehaviour
     {
         if (target == null) return;
 
-        transform.position = target.transform.position + offsetZ;
+        Vector3 delta = target.transform.position - this.transform.position;
+        delta.z = 0f;
+        if (delta.magnitude > 0.05) {
+            if (delta.magnitude > 2) {
+                delta = Vector3.ClampMagnitude(delta, 2f);
+            }
+            this.transform.position += delta * 0.1f;
+        }
     }
 
     public void FocusTarget(GameObject newTarget)
     {
-        Debug.Log("Focusing camera!");
+        Debug.Log("Focusing camera! Following the object...");
+        Debug.Log(target);
 
-        offsetZ = new Vector3(0, 0, transform.position.z - newTarget.transform.position.z);
         target = newTarget;
 
     }
