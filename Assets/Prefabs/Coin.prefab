@@ -160,6 +160,7 @@ MonoBehaviour:
   coinCollideAudio: {fileID: 8300000, guid: 8faf256d231f9c14c831d51d83fd8d59, type: 3}
   landAudio: {fileID: 8300000, guid: 722005265ba94de4483cc49f543bbadb, type: 3}
   depositAudio: {fileID: 8300000, guid: 7ba6afd4717dd2d4eafba2f8eb6b3f19, type: 3}
+  tinkAudio: {fileID: 8300000, guid: bb2bc1b75ae9fb843abee2c8b61e6a90, type: 3}
 --- !u!61 &6757434073087000138
 BoxCollider2D:
   m_ObjectHideFlags: 0

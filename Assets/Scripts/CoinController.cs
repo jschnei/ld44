@@ -38,13 +38,16 @@ public class CoinController : MonoBehaviour
     public AudioClip coinCollideAudio;
     public AudioClip landAudio;
     public AudioClip depositAudio;
+    public AudioClip tinkAudio;
 
     void OnCollisionEnter2D(Collision2D collision) {
-        // Debug.Log(collision.gameObject.transform.name);
+        Debug.Log(collision.gameObject.transform.name);
         if (collision.gameObject.tag == "coin") {
             this.GetComponent<AudioSource>().PlayOneShot(coinCollideAudio, 0.3f);
         } else if (collision.gameObject.transform.name == "Walls/Floors") {
             this.GetComponent<AudioSource>().PlayOneShot(landAudio, 0.5f);
+        } else if (collision.gameObject.transform.name.Contains("Door")) {
+            this.GetComponent<AudioSource>().PlayOneShot(tinkAudio, 0.5f);
         }
     }
 
