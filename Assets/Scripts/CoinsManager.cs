@@ -11,6 +11,8 @@ public class CoinsManager : MonoBehaviour
     LevelManager level;
     CoinController activeCoin;
 
+    public AudioClip swapAudio;
+
     GameObject GetPrefab(CoinType coinType)
     {
         switch (coinType)
@@ -72,6 +74,7 @@ public class CoinsManager : MonoBehaviour
         DeactivateCoin(activeCoin);
         activeCoin = GetCoinController(nextIndex);
         ActivateCoin(activeCoin);
+        this.GetComponent<AudioSource>().PlayOneShot(swapAudio, 0.8f);
     }
 
     void SwitchForward()

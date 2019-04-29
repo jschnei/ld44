@@ -33,6 +33,20 @@ public class CoinController : MonoBehaviour
     PayslotController activePayslot;
     GameObject activePayslotUI;
 
+    public AudioClip jumpAudio;
+    public AudioClip coinCollideAudio;
+    public AudioClip landAudio;
+    public AudioClip depositAudio;
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        // Debug.Log(collision.gameObject.transform.name);
+        if (collision.gameObject.tag == "coin") {
+            this.GetComponent<AudioSource>().PlayOneShot(coinCollideAudio, 0.3f);
+        } else if (collision.gameObject.transform.name == "Walls/Floors") {
+            this.GetComponent<AudioSource>().PlayOneShot(landAudio, 0.5f);
+        }
+    }
+
     // Note that this is called separately for each object that it collides with.
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -136,6 +150,7 @@ public class CoinController : MonoBehaviour
 		}
 		
         if (isGrounded && Input.GetKeyDown("up")) {
+            this.GetComponent<AudioSource>().PlayOneShot(jumpAudio, 0.5f);
         	Debug.Log("attempting to jump");
             rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
         }

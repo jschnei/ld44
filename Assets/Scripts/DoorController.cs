@@ -10,6 +10,10 @@ public class DoorController : MonoBehaviour
 
     DoorAnimationController paywallAnimation;
 
+    public AudioClip depositAudio;
+    public AudioClip doorOpenAudio;
+    public AudioClip paywallActivateAudio;
+
     public int cost = 10;
 
     // Start is called before the first frame update
@@ -33,6 +37,8 @@ public class DoorController : MonoBehaviour
     public void ProcessCoin(CoinController coin)
     {
         if (cost <= 0) return;
+        
+        this.GetComponent<AudioSource>().PlayOneShot(depositAudio, 0.5f);
 
         // Destroy coin
         cost -= coin.GetValue();
@@ -48,11 +54,18 @@ public class DoorController : MonoBehaviour
 
             paywallAnimation.OpenDoor();
             doorMonitor.DisplayOpen();
+            this.GetComponent<AudioSource>().PlayOneShot(doorOpenAudio, 0.5f);
+            StartCoroutine(PlayPaywallActivateAudio());
         }
         else
         {
             doorMonitor.DisplayBalance(cost);
         }
         
+    }
+
+    IEnumerator PlayPaywallActivateAudio() {
+        yield return new WaitForSeconds(0.2f);
+        this.GetComponent<AudioSource>().PlayOneShot(paywallActivateAudio, 0.5f);
     }
 }
