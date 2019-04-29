@@ -30,8 +30,13 @@ public class CoinController : MonoBehaviour
 
     const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.7f;
 
+    // Note that this is called separately for each object that it collides with.
     void OnCollisionStay2D(Collision2D collision)
     {
+    	if (groundedOn != null && groundedOn != collision.gameObject) {
+    		return;
+    	}
+
     	bool foundContact = false;
         foreach (ContactPoint2D contact in collision.contacts)
         {
@@ -54,7 +59,6 @@ public class CoinController : MonoBehaviour
     {
         if (collision.gameObject == groundedOn)
         {
-        	Debug.Log("is now not grounded");
             groundedOn = null;
             isGrounded = false;
         }
@@ -124,6 +128,7 @@ public class CoinController : MonoBehaviour
 		}
 		
         if (isGrounded && Input.GetKeyDown("up")) {
+        	Debug.Log("attempting to jump");
             rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
         }
     }
