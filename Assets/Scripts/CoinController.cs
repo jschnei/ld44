@@ -20,7 +20,7 @@ public class CoinController : MonoBehaviour
 
     Rigidbody2D rigidbody2d;
 
-    GameObject groundedOn = null;
+    GameObject groundedOn;
     bool isGrounded = false;
     bool activeCoin = false;
 
@@ -29,6 +29,9 @@ public class CoinController : MonoBehaviour
     private float initialX;
 
     const float COLLISION_GROUND_NORMAL_THRESHOLD = 0.7f;
+
+    PayslotController activePayslot;
+    GameObject activePayslotUI;
 
     // Note that this is called separately for each object that it collides with.
     void OnCollisionStay2D(Collision2D collision)
@@ -96,13 +99,17 @@ public class CoinController : MonoBehaviour
 
         ScalePolygonCollider(polygonColliderScaleFactor);
 
-        initialX = this.transform.position.x;
+        initialX = transform.position.x;
+
+        // activePayslotUI = transform.Find("ActivePayslotUI").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         foreach (Transform child in this.transform) {
+            if (child.name == "ActivePayslotUI") continue;
+
             child.GetComponent<CoinRenderingHelper>().eyesOpen = activeCoin;
             float r = 0f;
             if (coinType == CoinType.FIVE) {
@@ -130,6 +137,12 @@ public class CoinController : MonoBehaviour
         if (isGrounded && Input.GetKeyDown("up")) {
         	Debug.Log("attempting to jump");
             rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
+        }
+
+        if(Input.GetKeyDown("down") && activePayslot != null)
+        {
+            Debug.Log("paying coin!");
+            activePayslot.ProcessCoin(this);
         }
     }
 
@@ -174,6 +187,25 @@ public class CoinController : MonoBehaviour
     public void SetLocation(Vector2 position)
     {
         transform.position = position;
+    }
+
+    public PayslotController ActivePayslot
+    {
+        get => activePayslot;
+    }
+
+    public void AttachPayslot(PayslotController payslot)
+    {
+        Debug.Log("activate payslot");
+        activePayslot = payslot;
+        // activePayslotUI.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    public void DetachPayslot()
+    {
+        Debug.Log("deactivate payslot");
+        activePayslot = null;
+        // activePayslotUI.GetComponent<SpriteRenderer>().enabled = false;
     }
 
 }

@@ -23,6 +23,25 @@ public class PayslotController : MonoBehaviour
         CoinController coin = collider.gameObject.GetComponent<CoinController>();
         if (coin == null) return;
 
+        coin.AttachPayslot(this);
+        Debug.Log("coin entered payslot trigger");
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        CoinController coin = collider.gameObject.GetComponent<CoinController>();
+        if (coin == null) return;
+
+        if (coin.ActivePayslot == this)
+        {
+            coin.DetachPayslot();
+            Debug.Log("coin left payslot trigger");
+        }
+        
+    }
+
+    public void ProcessCoin(CoinController coin)
+    {
         door.ProcessCoin(coin);
     }
 }
