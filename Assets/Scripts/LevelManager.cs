@@ -9,8 +9,8 @@ public class LevelManager : MonoBehaviour
 
     public AudioClip levelCompleteAudio;
 
-    static string[] levelNames = { "MainScene",
-                                   "AndersonLevel" };
+    public static string[] levelNames = { "MainScene",
+                                          "AndersonLevel" };
 
     int levelIndex;
     Scene scene;
