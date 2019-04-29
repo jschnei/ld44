@@ -9,11 +9,19 @@ public class LevelManager : MonoBehaviour
 
     public AudioClip levelCompleteAudio;
 
-    public static string[] levelNames = { "MainScene",
-                                          "AndersonLevel" };
+    public static string[] levelNames = { "ActualTutorial1",
+//                                          "colin1",
+                                          "colin2",
+                                          "colin3",
+                                          "colin4",
+                                          "AndersonLevel2",
+                                          "Lennart1",
+                                          "point75"
+                                        };
 
     int levelIndex;
     Scene scene;
+    bool won = false;
 
     // Use Awake because the camera is called in CoinsManager's Start, so the camera needs to be initialized first.
     void Awake()
@@ -44,6 +52,9 @@ public class LevelManager : MonoBehaviour
 
     public void WinLevel()
     {
+        if (won) return;
+
+        won = true;
         Debug.Log("Level won!");
         this.GetComponent<AudioSource>().PlayOneShot(levelCompleteAudio, 0.5f);
         string nextLevel = levelNames[(levelIndex + 1) % levelNames.Length];
