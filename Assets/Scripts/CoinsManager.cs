@@ -93,6 +93,14 @@ public class CoinsManager : MonoBehaviour
         SwitchToIndex(nextIndex);
     }
 
+    void ReconfigureUIs()
+    {
+        foreach (CoinController coin in gameObject.GetComponentsInChildren<CoinController>())
+        {
+            coin.ReconfigureUI();
+        }
+    }
+
     public void DestroyCoin(CoinController coin)
     {
         int numCoins = transform.childCount;
@@ -110,7 +118,9 @@ public class CoinsManager : MonoBehaviour
             SwitchForward();
         }
 
-        Destroy(coin.gameObject);        
+        Destroy(coin.gameObject);
+
+        ReconfigureUIs();
     }
 
     public void AddCoin(CoinType coinType, Vector2 location)
@@ -128,6 +138,8 @@ public class CoinsManager : MonoBehaviour
             ActivateCoin(coin);
             activeCoin = coin;
         }
+
+        ReconfigureUIs();
     }
 
 }

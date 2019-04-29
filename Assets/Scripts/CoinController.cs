@@ -101,7 +101,8 @@ public class CoinController : MonoBehaviour
 
         initialX = transform.position.x;
 
-        // activePayslotUI = transform.Find("ActivePayslotUI").gameObject;
+        activePayslotUI = transform.Find("ActivePayslotUI").gameObject;
+        activePayslotUI.SetActive(true);
     }
 
     // Update is called once per frame
@@ -149,12 +150,14 @@ public class CoinController : MonoBehaviour
     public void Activate()
     {
         activeCoin = true;
+        ReconfigureUI();
     }
 
     public void Deactivate()
     {
 
         activeCoin = false;
+        ReconfigureUI();
     }
 
     public int GetValue()
@@ -194,18 +197,34 @@ public class CoinController : MonoBehaviour
         get => activePayslot;
     }
 
+    public void ReconfigureUI()
+    {
+        if (activePayslotUI == null) return;
+
+        if(activePayslot != null && activeCoin && activePayslot.IsActive())
+        {
+            activePayslotUI.GetComponent<SpriteRenderer>().enabled = true;   
+        }
+        else
+        {
+            activePayslotUI.GetComponent<SpriteRenderer>().enabled = false;
+        }
+    }
+
     public void AttachPayslot(PayslotController payslot)
     {
         Debug.Log("activate payslot");
         activePayslot = payslot;
-        // activePayslotUI.GetComponent<SpriteRenderer>().enabled = true;
+
+        ReconfigureUI();
     }
 
     public void DetachPayslot()
     {
         Debug.Log("deactivate payslot");
         activePayslot = null;
-        // activePayslotUI.GetComponent<SpriteRenderer>().enabled = false;
+
+        ReconfigureUI();
     }
 
 }

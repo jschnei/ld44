@@ -40,6 +40,11 @@ public class PayslotController : MonoBehaviour
         
     }
 
+    public bool IsActive()
+    {
+        return (door.cost > 0);
+    }
+
     public void ProcessCoin(CoinController coin)
     {
         door.ProcessCoin(coin);
