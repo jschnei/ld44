@@ -7,6 +7,8 @@ public class ButtonController : MonoBehaviour
     GameObject upButton;
     GameObject downButton;
 
+    public AudioClip buttonAudio;
+
     DoorAnimationController buttonDoor;
     // Start is called before the first frame update
 
@@ -56,6 +58,7 @@ public class ButtonController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Button triggered!");
+        this.GetComponent<AudioSource>().PlayOneShot(buttonAudio, 0.5f);
 
         CoinController coin = collider.gameObject.GetComponent<CoinController>();
         if (coin == null) return;

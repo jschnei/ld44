@@ -7,6 +7,9 @@ public class DoorAnimationController : MonoBehaviour
     Animator animator;
     BoxCollider2D boxCollider;
 
+    public AudioClip openDoorAudio;
+    public AudioClip closeDoorAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,7 @@ public class DoorAnimationController : MonoBehaviour
     public void OpenDoor()
     {
         Debug.Log("Opening Door!");
+        this.GetComponent<AudioSource>().PlayOneShot(openDoorAudio, 0.5f);
         animator.SetTrigger("OpenDoor");
         boxCollider.enabled = false;
     }
@@ -24,6 +28,7 @@ public class DoorAnimationController : MonoBehaviour
     public void CloseDoor()
     {
         Debug.Log("Closing Door!");
+        this.GetComponent<AudioSource>().PlayOneShot(closeDoorAudio, 0.5f);
 
         if (animator == null) return;
 

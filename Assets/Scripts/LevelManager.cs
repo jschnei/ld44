@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
     CameraController mainCamera;
     CoinsManager player;
+
+    public AudioClip levelCompleteAudio;
 
     static string[] levelNames = { "MainScene",
                                    "AndersonLevel" };
@@ -42,8 +45,14 @@ public class LevelManager : MonoBehaviour
     public void WinLevel()
     {
         Debug.Log("Level won!");
+        this.GetComponent<AudioSource>().PlayOneShot(levelCompleteAudio, 0.5f);
         string nextLevel = levelNames[(levelIndex + 1) % levelNames.Length];
         Debug.Log(nextLevel);
+        StartCoroutine(GoToNextLevel(nextLevel));
+    }
+
+    IEnumerator GoToNextLevel(string nextLevel) {
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(nextLevel);
     }
 }
