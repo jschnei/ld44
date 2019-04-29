@@ -23,6 +23,7 @@ public class CoinController : MonoBehaviour
     GameObject groundedOn;
     bool isGrounded = false;
     bool activeCoin = false;
+    bool movable = false;
 
     CoinsManager manager;
 
@@ -137,6 +138,8 @@ public class CoinController : MonoBehaviour
             child.GetComponent<CoinRenderingHelper>().rotation = (float) ((this.transform.position.x - initialX) / r * -180.0 / Math.PI);
         }
 
+        // use this if you don't want any movement to be possible until movable
+        // if (!activeCoin || !movable) {
         if (!activeCoin) {
         	return;
         }
@@ -155,7 +158,7 @@ public class CoinController : MonoBehaviour
             rigidbody2d.AddForce(Vector2.up * jumpStrength, ForceMode2D.Impulse);
         }
 
-        if(Input.GetKeyDown("down") && activePayslot != null)
+        if(Input.GetKeyDown("down") && activePayslot != null && movable)
         {
             Debug.Log("paying coin!");
             activePayslot.ProcessCoin(this);
@@ -165,18 +168,17 @@ public class CoinController : MonoBehaviour
     public void Activate()
     {
         activeCoin = true;
+
+        movable = false;
+        StartCoroutine(SlowActivate());
+
         ReconfigureUI();
     }
 
-    public void SlowActivate()
-    {
-        StartCoroutine(ActivateCoroutine());
-    }
-
-    IEnumerator ActivateCoroutine()
+    IEnumerator SlowActivate()
     {
         yield return new WaitForSeconds(0.2f);
-        Activate();
+        movable = true;
     }
 
     public void Deactivate()

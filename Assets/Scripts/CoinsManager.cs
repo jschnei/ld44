@@ -60,7 +60,7 @@ public class CoinsManager : MonoBehaviour
 
     void ActivateCoin(CoinController coin)
     {
-        coin.SlowActivate();
+        coin.Activate();
         level.FocusCamera(coin.gameObject);
     }
 
