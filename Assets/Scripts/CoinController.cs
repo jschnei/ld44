@@ -168,6 +168,17 @@ public class CoinController : MonoBehaviour
         ReconfigureUI();
     }
 
+    public void SlowActivate()
+    {
+        StartCoroutine(ActivateCoroutine());
+    }
+
+    IEnumerator ActivateCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Activate();
+    }
+
     public void Deactivate()
     {
 

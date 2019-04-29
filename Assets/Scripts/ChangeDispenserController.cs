@@ -46,9 +46,20 @@ public class ChangeDispenserController : MonoBehaviour
     public void DispenseChange(int amount)
     {
         List<CoinType> change = MakeChange(amount);
-        foreach (CoinType coin in change)
+        StartCoroutine(DispensePartOfChange(change));
+    }
+
+
+    IEnumerator DispensePartOfChange(List<CoinType> change)
+    {
+        if (change.Count > 0)
         {
-            DispenseCoin(coin);
+            CoinType firstCoin = change[0];
+            change.RemoveAt(0);
+
+            DispenseCoin(firstCoin);
+            yield return new WaitForSeconds(0.8f);
+            StartCoroutine(DispensePartOfChange(change));
         }
     }
 
