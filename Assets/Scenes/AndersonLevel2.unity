@@ -4472,7 +4472,7 @@ PrefabInstance:
     - target: {fileID: 3296615789222987841, guid: a4ef02dfe093945c0a297ddc318c9218,
         type: 3}
       propertyPath: m_Name
-      value: Tilemap
+      value: Walls/Floors
       objectReference: {fileID: 0}
     - target: {fileID: 3296615789222987840, guid: a4ef02dfe093945c0a297ddc318c9218,
         type: 3}
