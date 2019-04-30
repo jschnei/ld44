@@ -10,13 +10,18 @@ public class LevelManager : MonoBehaviour
     public AudioClip levelCompleteAudio;
 
     public static string[] levelNames = { "ActualTutorial1",
-//                                          "colin1",
+                                          "ActualTutorial2",
+                                          "ActualTutorial3",
+                                          "Perilous",
+                                          "Goldilocks",
                                           "colin2",
-                                          "colin3",
-                                          "colin4",
-                                          "AndersonLevel2",
+                                          "colin1",
                                           "Lennart1",
-                                          "point75"
+                                          "point75",
+                                          "AndersonLevel2",
+                                          "colin4",
+                                          "colin3",
+                                          "CrampedLevel"
                                         };
 
     int levelIndex;
