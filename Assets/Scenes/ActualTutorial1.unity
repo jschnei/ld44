@@ -51278,22 +51278,22 @@ PrefabInstance:
     - target: {fileID: 1339556556551561738, guid: e79b4a1bdfff2354aaaf9cd2b8e7295b,
         type: 3}
       propertyPath: m_text
-      value: Use the Arrow Keys or WASD to move around the level.
+      value: Use the Arrow Keys to move around the level.
       objectReference: {fileID: 0}
     - target: {fileID: 1339556556551561738, guid: e79b4a1bdfff2354aaaf9cd2b8e7295b,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 52
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 1339556556551561738, guid: e79b4a1bdfff2354aaaf9cd2b8e7295b,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1339556556551561738, guid: e79b4a1bdfff2354aaaf9cd2b8e7295b,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1339556556551561738, guid: e79b4a1bdfff2354aaaf9cd2b8e7295b,
         type: 3}

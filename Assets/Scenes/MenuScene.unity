@@ -12569,6 +12569,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3296615789222987843, guid: a4ef02dfe093945c0a297ddc318c9218,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3296615789222987842, guid: a4ef02dfe093945c0a297ddc318c9218,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -32223,11 +32228,6 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[654].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3296615789222987843, guid: a4ef02dfe093945c0a297ddc318c9218,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1919082896145314026, guid: a4ef02dfe093945c0a297ddc318c9218,
         type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.size
@@ -33376,6 +33376,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568996628145349178, guid: 28ba2317864550f459e30125eb66de12,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28ba2317864550f459e30125eb66de12, type: 3}
