@@ -19,7 +19,6 @@ public class LevelManager : MonoBehaviour
                                           "Lennart1",
                                           "point75",
                                           "AndersonLevel2",
-                                          "colin4",
                                           "colin3",
                                           "CrampedLevel"
                                         };
