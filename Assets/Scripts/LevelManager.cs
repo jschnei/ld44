@@ -20,7 +20,8 @@ public class LevelManager : MonoBehaviour
                                           "point75",
                                           "AndersonLevel2",
                                           "colin3",
-                                          "CrampedLevel"
+                                          "CrampedLevel",
+                                          "VictoryScene"
                                         };
 
     int levelIndex;
