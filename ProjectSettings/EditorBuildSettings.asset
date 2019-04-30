@@ -9,17 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/ActualTutorial1.unity
     guid: 0d24101449a21c54b8ed8771137334c8
   - enabled: 1
-    path: Assets/Scenes/AndersonLevel.unity
-    guid: 3a030e86d2742477f8be394294f2d1da
+    path: Assets/Scenes/ActualTutorial2.unity
+    guid: ef4cd9344a9a7e242842b9152fd63dda
+  - enabled: 1
+    path: Assets/Scenes/ActualTutorial3.unity
+    guid: 1c6b169442d861449921c1c16ab6f3c1
   - enabled: 1
     path: Assets/Scenes/AndersonLevel2.unity
     guid: bb8d159422e5f40fc93e30ac68b3ec9f
   - enabled: 1
     path: Assets/Scenes/colin1.unity
-    guid: 650e24da37e4c6d40a74cfda0a45ff23
+    guid: d5d1048b51bb7b54295c2aade2655ce8
   - enabled: 1
     path: Assets/Scenes/colin2.unity
-    guid: f118e037975fcb5458646ee9125a7325
+    guid: 83b009c3405be93409eb3014d02e9923
   - enabled: 1
     path: Assets/Scenes/colin3.unity
     guid: 869889ba77069794597efe932daf8153
@@ -30,12 +33,21 @@ EditorBuildSettings:
     path: Assets/Scenes/CrampedLevel.unity
     guid: 87ed88ae5619947969f05aff11cdf651
   - enabled: 1
+    path: Assets/Scenes/Goldilocks.unity
+    guid: 54a5cf013affd424c9284452ee4df680
+  - enabled: 1
     path: Assets/Scenes/Lennart1.unity
     guid: 6a1046fb7d049664196a980df2271dec
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: b24be2acfd73ed04b85a54f1ffaea41b
   - enabled: 1
+    path: Assets/Scenes/Perilous.unity
+    guid: 2ae5b21794fbdf7468fb201ab2126f5b
+  - enabled: 1
     path: Assets/Scenes/point75.unity
     guid: 335e15a72d7254290b9d468279952a19
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: d46b9c71cab101b48bb90d97fe102878
   m_configObjects: {}
