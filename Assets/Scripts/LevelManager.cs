@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
 
     int levelIndex;
     Scene scene;
-    bool won = false;
+    public bool won = false;
 
     // Use Awake because the camera is called in CoinsManager's Start, so the camera needs to be initialized first.
     void Awake()

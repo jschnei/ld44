@@ -40,6 +40,8 @@ public class CoinController : MonoBehaviour
     public AudioClip depositAudio;
     public AudioClip tinkAudio;
 
+    LevelManager level;
+
     void OnCollisionEnter2D(Collision2D collision) {
         Debug.Log(collision.gameObject.transform.name);
         if (collision.gameObject.tag == "coin") {
@@ -121,6 +123,8 @@ public class CoinController : MonoBehaviour
 
         activePayslotUI = transform.Find("ActivePayslotUI").gameObject;
         activePayslotUI.SetActive(true);
+
+        level = GameObject.FindGameObjectWithTag("level").GetComponent<LevelManager>();
     }
 
     // Update is called once per frame
@@ -143,7 +147,7 @@ public class CoinController : MonoBehaviour
 
         // use this if you don't want any movement to be possible until movable
         // if (!activeCoin || !movable) {
-        if (!activeCoin) {
+        if (!activeCoin || level.won) {
         	return;
         }
 

@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 1774977367408502338}
   m_Layer: 0
   m_Name: Level
-  m_TagString: Untagged
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -574,6 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCompleteAudio: {fileID: 8300000, guid: f3e81b2327d8fb24f97c581a40eaa54f, type: 3}
+  won: 0
 --- !u!82 &1774977367408502338
 AudioSource:
   m_ObjectHideFlags: 0

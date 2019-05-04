@@ -41,6 +41,8 @@ public class CoinsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (level.won) return;
+
         // TODO: switch to Input.GetButtonDown
         if (Input.GetKeyDown("l"))
         {
