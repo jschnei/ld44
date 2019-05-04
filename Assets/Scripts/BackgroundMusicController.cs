@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BackgroundMusicController : MonoBehaviour
 {
-    //public AudioClip backgroundMusic;
-
     private static BackgroundMusicController instance = null;
     public static BackgroundMusicController Instance
     {
@@ -32,6 +30,17 @@ public class BackgroundMusicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("m"))
+        {
+            AudioSource backgroundMusic = gameObject.GetComponent<AudioSource>();
+            if (backgroundMusic.mute)
+            {
+                backgroundMusic.mute = false;
+            }
+            else
+            {
+                backgroundMusic.mute = true;
+            }
+        }
     }
 }
