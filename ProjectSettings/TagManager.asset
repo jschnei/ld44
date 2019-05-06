@@ -8,6 +8,7 @@ TagManager:
   - coin text
   - closed eyes
   - coin
+  - level
   layers:
   - Default
   - TransparentFX

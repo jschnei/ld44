@@ -46784,6 +46784,26 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[370].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5136695314099871508, guid: 8233e6b1999e1d242a574b586d30f53f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136695314099871508, guid: 8233e6b1999e1d242a574b586d30f53f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 34.765522
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136695314099871508, guid: 8233e6b1999e1d242a574b586d30f53f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136695314099871508, guid: 8233e6b1999e1d242a574b586d30f53f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 56.03381
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8233e6b1999e1d242a574b586d30f53f, type: 3}
 --- !u!4 &2011454702 stripped
