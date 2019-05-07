@@ -54,7 +54,7 @@ public class ChangeDispenserController : MonoBehaviour
 
     IEnumerator DispensePartOfChange(List<CoinType> change)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         if (change.Count > 0)
         {
             CoinType firstCoin = change[0];
@@ -63,7 +63,7 @@ public class ChangeDispenserController : MonoBehaviour
             this.GetComponent<AudioSource>().PlayOneShot(dispenseChangeAudio, 0.5f);
             
             DispenseCoin(firstCoin);
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(0.5f);
             StartCoroutine(DispensePartOfChange(change));
         }
     }
